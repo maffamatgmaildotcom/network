@@ -1,0 +1,32 @@
+<h1>Routers</h1>
+
+<table id="routers" class="display">
+<thead>
+  <tr>
+    <th>Address</th>
+    <th>Username</th>
+	<th>Location</th>
+	<th>Model</th>
+	<th>Description</th>
+    <th>Wireless</th>
+    <th>Wired</th>
+  </tr>
+</thead>
+<tbody>
+<% @routers.each do |router| %>
+  <tr>
+    <td><%= link_to(router.address, router) %></td>	  
+    <td><%= router.username %></td>
+	<td><%= router.location %></td>
+    <td><%= router.model %></td>
+    <td><%= router.description %></td>			
+    <td><%= router.wireless %></td>
+    <td><%= router.wired %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Router', new_router_path %>

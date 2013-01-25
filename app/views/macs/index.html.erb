@@ -1,0 +1,26 @@
+<h1>Mac Addresses</h1>
+
+<table id="macs" class="display">
+<thead>
+  <tr>
+    <th>Address</th>
+    <th>Description</th>
+    <th>Name</th>
+    <th>Owner</th>
+  </tr>
+</thead>
+<tbody>
+  <% @macs.each do |mac| %>
+    <tr>
+      <td><%= link_to(mac.address, mac) %></td>
+      <td><%= mac.description %></td>
+      <td><%= mac.name %></td>
+      <td><%= mac.owner %></td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Mac', new_mac_path %>
