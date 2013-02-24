@@ -11,7 +11,35 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120418171112) do
+ActiveRecord::Schema.define(:version => 20121125034705) do
+
+  create_table "devices", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "location"
+    t.string   "device_type"
+  end
+
+  create_table "ips", :force => true do |t|
+    t.string   "address"
+    t.text     "description"
+    t.integer  "mac_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "address_type"
+  end
+
+  create_table "macs", :force => true do |t|
+    t.string   "address"
+    t.text     "description"
+    t.string   "name"
+    t.string   "owner"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "device_id"
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -23,6 +51,19 @@ ActiveRecord::Schema.define(:version => 20120418171112) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "routers", :force => true do |t|
+    t.string   "address"
+    t.string   "username"
+    t.string   "password"
+    t.boolean  "wireless"
+    t.boolean  "wired"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "location"
+    t.string   "model"
+    t.text     "description"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

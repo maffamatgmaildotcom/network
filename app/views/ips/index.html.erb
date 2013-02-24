@@ -1,0 +1,24 @@
+<h1>IP Addresses</h1>
+
+<table id="ips" class="display">
+<thead>
+  <tr>
+    <th>Address</th>
+    <th>Type</th>	
+    <th>Description</th>
+  </tr>
+</thead>
+<tbody>
+<% @ips.each do |ip| %>
+  <tr>
+    <td><%= link_to(ip.address, ip) %></td>
+    <td><%= ip.address_type %></td>	
+    <td><%= ip.description %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+<br />
+
+<%= link_to 'New IP', new_ip_path %>

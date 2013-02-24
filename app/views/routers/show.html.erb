@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Address:</b>
+  <%= @router.address %>
+</p>
+
+<p>
+  <b>Username:</b>
+  <%= @router.username %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @router.location %>
+</p>
+
+<p>
+  <b>Brand/model:</b>
+  <%= @router.model %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @router.description %>
+</p>
+
+<p>
+  <b>Wireless:</b>
+  <%= @router.wireless %>
+</p>
+
+<p>
+  <b>Wired:</b>
+  <%= @router.wired %>
+</p>
+
+
+<%= link_to 'Edit', edit_router_path(@router) %> |
+<%= link_to 'Back', routers_path %>
