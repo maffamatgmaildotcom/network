@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  address: MyString
+  username: MyString
+  password: 
+  wireless: false
+  wired: false
+
+two:
+  address: MyString
+  username: MyString
+  password: 
+  wireless: false
+  wired: false
