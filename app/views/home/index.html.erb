@@ -1,5 +1,6 @@
 <h3>Home</h3>
 <p>This is the home page of the Network application which is a simple Rails app to keep track of our home network.</p>
+<% if user_signed_in? %>
 <p>Some of the items to be tracked include: devices, IP addresses, MAC addresses, and routers. In terms of relationships, devices have one or more MAC address(es) and each MAC has one IP. Note that the IPs tracked here are either static or a DHCP reservation for devices like routers or printers. Most devices (all the others) use DHCP without reservations.<p>
 <ul>
 <li><%= link_to "Devices", devices_path %></li>
@@ -7,3 +8,4 @@
 <li><%= link_to "MAC addresses", macs_path %></li>
 <li><%= link_to "Routers", routers_path %></li>
 </ul>
+<% end %>
