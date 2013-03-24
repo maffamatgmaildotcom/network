@@ -15,9 +15,11 @@
     </li>  
   <% end %> 
   <% if user_signed_in? %>
+	<% unless Rails.env.production? %>  
     <li>
     <%= link_to 'User Profile', edit_user_registration_path %>
     </li>
+	<% end %>
     <% if current_user.has_role? :admin %>
       <li>
       <%= link_to 'Admin', users_path %>
