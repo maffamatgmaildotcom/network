@@ -1,4 +1,6 @@
 class IpsController < ApplicationController
+  before_filter :authenticate_user!
+
   # GET /ips
   # GET /ips.json
   def index

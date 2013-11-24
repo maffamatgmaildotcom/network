@@ -1,4 +1,6 @@
 class MacsController < ApplicationController
+  before_filter :authenticate_user!
+
   # GET /macs
   # GET /macs.json
   def index
