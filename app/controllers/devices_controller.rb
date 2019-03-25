@@ -1,5 +1,5 @@
 class DevicesController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   # GET /devices
   # GET /devices.json
@@ -42,8 +42,7 @@ class DevicesController < ApplicationController
   # POST /devices
   # POST /devices.json
   def create
-    @device = Device.new(params[:device])
-
+    @device = Device.new(device_params)
     respond_to do |format|
       if @device.save
         format.html { redirect_to @device, notice: 'Device was successfully created.' }
@@ -61,7 +60,7 @@ class DevicesController < ApplicationController
     @device = Device.find(params[:id])
 
     respond_to do |format|
-      if @device.update_attributes(params[:device])
+      if @device.update_attributes(device_params)
         format.html { redirect_to @device, notice: 'Device was successfully updated.' }
         format.json { head :no_content }
       else
@@ -81,6 +80,12 @@ class DevicesController < ApplicationController
       format.html { redirect_to devices_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def device_params
+    params.require(:device).permit(:description, :name, :location, :device_type)
   end
   
 end

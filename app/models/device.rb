@@ -1,4 +1,3 @@
-class Device < ActiveRecord::Base
-  attr_accessible :description, :name, :location, :device_type
+class Device < ApplicationRecord
   has_many :macs, :dependent => :destroy
 end

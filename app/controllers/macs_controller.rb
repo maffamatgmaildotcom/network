@@ -1,5 +1,5 @@
 class MacsController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   # GET /macs
   # GET /macs.json
@@ -42,7 +42,7 @@ class MacsController < ApplicationController
   # POST /macs
   # POST /macs.json
   def create
-    @mac = Mac.new(params[:mac])
+    @mac = Mac.new(mac_params)
 
     respond_to do |format|
       if @mac.save
@@ -61,7 +61,7 @@ class MacsController < ApplicationController
     @mac = Mac.find(params[:id])
 
     respond_to do |format|
-      if @mac.update_attributes(params[:mac])
+      if @mac.update_attributes(mac_params)
         format.html { redirect_to @mac, notice: 'Mac was successfully updated.' }
         format.json { head :no_content }
       else
@@ -81,5 +81,11 @@ class MacsController < ApplicationController
       format.html { redirect_to macs_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def mac_params
+    params.require(:mac).permit(:address, :description, :name, :owner)
   end
 end

@@ -1,4 +1,4 @@
-class AddFieldsToDevices < ActiveRecord::Migration
+class AddFieldsToDevices < ActiveRecord::Migration[5.2]
   def change
     add_column :devices, :location, :string
     remove_column :devices, :type

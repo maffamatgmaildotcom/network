@@ -1,5 +1,5 @@
 class IpsController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   # GET /ips
   # GET /ips.json
@@ -42,7 +42,7 @@ class IpsController < ApplicationController
   # POST /ips
   # POST /ips.json
   def create
-    @ip = Ip.new(params[:ip])
+    @ip = Ip.new(ip_params)
 
     respond_to do |format|
       if @ip.save
@@ -61,7 +61,7 @@ class IpsController < ApplicationController
     @ip = Ip.find(params[:id])
 
     respond_to do |format|
-      if @ip.update_attributes(params[:ip])
+      if @ip.update_attributes(ip_params)
         format.html { redirect_to @ip, notice: 'Ip was successfully updated.' }
         format.json { head :no_content }
       else
@@ -83,4 +83,9 @@ class IpsController < ApplicationController
     end
   end
   
+  private
+
+  def ip_params
+    params.require(:ip).permit(:address, :ip_type, :description)
+  end
 end

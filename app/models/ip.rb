@@ -1,4 +1,3 @@
-class Ip < ActiveRecord::Base
-  attr_accessible :address, :description, :device_type
-  belongs_to :mac
+class Ip < ApplicationRecord
+  belongs_to :mac, optional: true
 end

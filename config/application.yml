@@ -12,4 +12,4 @@ GMAIL_PASSWORD: santarocks
 ADMIN_NAME: Administrator
 ADMIN_EMAIL: maffam@yahoo.com
 ADMIN_PASSWORD: changeme
-ROLES: [admin, user, VIP]
+ROLES: "[\"admin\", \"user\", \"VIP\"]"
