@@ -1,5 +1,5 @@
 class RoutersController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   # GET /routers
   # GET /routers.json
@@ -42,7 +42,7 @@ class RoutersController < ApplicationController
   # POST /routers
   # POST /routers.json
   def create
-    @router = Router.new(params[:router])
+    @router = Router.new(router_params)
 
     respond_to do |format|
       if @router.save
@@ -61,7 +61,7 @@ class RoutersController < ApplicationController
     @router = Router.find(params[:id])
 
     respond_to do |format|
-      if @router.update_attributes(params[:router])
+      if @router.update_attributes(router_params)
         format.html { redirect_to @router, notice: 'Router was successfully updated.' }
         format.json { head :no_content }
       else
@@ -82,4 +82,10 @@ class RoutersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+  def router_params
+    params.require(:router).permit(:address, :username, :location, :model, :description, :wireless, :wired)
+  end  
 end
