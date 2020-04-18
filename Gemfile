@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.7.1'
 gem 'rails_12factor', group: :production
 
-gem 'rails', '~> 5.2.2.1'
+gem 'rails', '~> 5.2.4'
 gem 'bootsnap', '~>1.4.1'
 gem 'listen'
 gem 'pg'
