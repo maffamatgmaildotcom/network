@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 # for heroku
-ruby '2.5.3'
+ruby '2.7.1'
 gem 'rails_12factor', group: :production
 
 gem 'rails', '~> 5.2.2.1'
